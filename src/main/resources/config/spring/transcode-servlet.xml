@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+       	http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd" >
+ 
+	 <!-- 扫描controller  -->
+	 <context:component-scan base-package="PTJ4.transcode.controller"></context:component-scan>
+ 
+ 	<!-- 	扫描service -->
+	<context:component-scan base-package="PTJ4.transcode.service.impl"></context:component-scan>
+	<!-- 	扫描dao -->
+	<context:component-scan base-package="PTJ4.transcode.dao.impl"></context:component-scan>
+
+	<!-- 加载属性文件 -->
+	<context:property-placeholder location="classpath:config/props/paypal.properties" />  
+	
+	<!--mvc:annotation driven 默认注册两个bean-->
+    <mvc:annotation-driven>
+        <!--设置编码为utf-8-->
+
+        <mvc:message-converters register-defaults="true">
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes" value="text/plain;charset=UTF-8" />
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    
+	<!--静态资源 mapping:请求的路径 -->
+	<mvc:resources location="/static/" mapping="/static/**"></mvc:resources>
+    
+   
+    <!--配置拦截器 -->  
+	<mvc:interceptors>    
+	    <mvc:interceptor>
+	        
+	        <mvc:mapping path="/videos/**" />
+	        <!-- not localhost:8080/transcode -->
+	        <!-- => localhost:8080/transcode/transcode -->
+	        <mvc:mapping path="/convert/**" />
+	        <mvc:mapping path="/profile/**" />
+	        <bean class="PTJ4.transcode.interceptor.TranscodeInterceptor"></bean>    
+	    </mvc:interceptor>
+	     <mvc:interceptor>
+	        
+	        <mvc:mapping path="/login/**" />
+	        <mvc:mapping path="/register/**" />
+	        <bean class="PTJ4.transcode.interceptor.AuthInterceptor"></bean>    
+	    </mvc:interceptor>
+	    <!-- 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法 -->  
+	</mvc:interceptors>
+	
+    <bean id="emf"
+          class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+        <!--持久化文件放置的位置-->
+        <property name="persistenceUnitName" value="transcodepu"></property>
+
+    </bean>
+
+    <!-- Add Transaction support -->
+    <bean id="myTxManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="emf" />
+    </bean>
+
+
+    <!-- Use @Transaction annotations for managing transactions -->
+    <tx:annotation-driven transaction-manager="myTxManager" />
+    
+    
+    <!--mail sender bean-->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.supinfotranscode.site" />
+        <property name="port" value="25" />
+        <property name="username" value="postmaster@supinfotranscode.site" />
+        <property name="password" value="Transcode4" />
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+
+            </props>
+        </property>
+    </bean>
+    
+    <!--视图解析  -->
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass"
+                  value="org.springframework.web.servlet.view.JstlView" />
+        <property name="prefix" value="/WEB-INF/views/newjsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <!-- 文件上传 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"></property>
+	<!-- 上传最大10GB -->
+        <property name="maxUploadSize" value="10737418240"></property>									  
+        <property name="maxInMemorySize" value="40960"></property>
+    </bean>
+           
+        
+</beans>

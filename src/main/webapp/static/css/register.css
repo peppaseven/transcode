@@ -1,0 +1,394 @@
+
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
+html {
+	height: 100%;
+	background-color: #fbb040;
+		
+}
+
+body {
+	font-family: montserrat, arial, verdana;
+}
+/*form styles*/
+#msform {
+	width: 650px;
+	margin: 30px auto;
+	text-align: center;
+	position: relative;
+}
+#msform fieldset {
+	background: #fff;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+	
+	/*stacking fieldsets above each other*/
+	position: absolute;
+}
+
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+/*inputs*/
+#msform input, #msform textarea {
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #fbb040;
+	font-size: 13px;
+}
+/*buttons*/
+#msform .action-button {
+	width: 100px;
+	background: #fbb040;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+}
+#msform .action-button:hover, #msform .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #FF8800;
+}
+/*headings*/
+.fs-title {
+	font-size: 15px;
+	text-transform: uppercase;
+	color: #2C3E50;
+	margin-bottom: 10px;
+}
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
+/*progressbar*/
+#progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+}
+#progressbar li {
+	list-style-type: none;
+	color: #fbb040;
+	text-transform: uppercase;
+	font-size: 13px;
+	width: 33.33%;
+	float: left;
+	position: relative;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 50px;
+	line-height: 50px;
+	display: block;
+	font-size: 40px;
+	color: white ;
+	background: #fbb040;
+	border-radius: 50px;
+	margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 4px;
+	background: #fbb040;
+	position: absolute;
+	left: -50%;
+	top: 22px;
+	z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #696969 ;
+	color: white;
+}
+.register-speacer {
+	height: 40px;
+}
+#navbar {
+	width: 1050px;
+	padding-top: 30px;
+	padding-bottom: 40px;
+	margin-left: -130px;
+	overflow: hidden;
+}
+#navbar li {
+	list-style-type: none;
+	color: #fbb040;
+	font-size: 24px;
+	width: 33.3%;
+	float: left;
+	position: relative;
+}
+#navbar1 {
+	width: 1050px;
+	padding-top: 30px;
+	padding-bottom: 40px;
+	margin-left: -120px;
+	overflow: hidden;
+}
+#navbar1 li {
+	list-style-type: none;
+	color: #fbb040;
+	font-size: 24px;
+	width: 50%;
+	float: left;
+	position: relative;
+}
+/*form styles*/
+#msform1 {
+	width: 650px;
+	margin: 30px auto;
+	text-align: center;
+	position: relative;
+}
+#msform1 fieldset {
+	background: #fff;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 50px 30px;
+	
+	box-sizing: border-box;
+	width: 80%;
+	margin: 2% 10%;
+	
+	/*stacking fieldsets above each other*/
+	position: absolute;
+}
+/*form2 styles*/
+#msform2 {
+	width: 650px;
+	margin: 115px auto;
+	text-align: center;
+	position: relative;
+}
+#msform2 fieldset {
+	background: #fff;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+	
+	/*stacking fieldsets above each other*/
+	position: absolute;
+}
+/*Hide all except first fieldset*/
+#msform1 fieldset:not(:first-of-type) {
+	display: none;
+}
+/*inputs*/
+#msform1 input, #msform textarea {
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #fbb040;
+	font-size: 13px;
+}
+/*buttons*/
+#msform1 .action-button {
+	width: 100px;
+	background: #fbb040;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+}
+#msform1 .action-button:hover, #msform .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #FF8800;
+}
+/*headings*/
+.fs-title1 {
+	font-size: 15px;
+	text-transform: uppercase;
+	color: #2C3E50;
+	margin-bottom: 10px;
+}
+.fs-subtitle1 {
+	font-weight: normal;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
+#msform .upload-button {
+	width: 100px;
+	background: #fbb040;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+}
+
+
+/*error-tip²å¼þ start*/
+.signin-error{
+	position:absolute;
+	left:0px;
+}
+.signin-error-tip{
+	position:relative;
+	padding:5px 8px;
+	margin-bottom:13px;
+	border:1px solid #e3a198;
+	border-radius:3px;
+	box-shadow:1px 1px 5px #e3a198;
+	display:inline-block;
+	background-color:#fed1d1;
+	color:#B8211D;
+	text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.signin-error-tip-arrow{
+	border:8px solid transparent;
+	position:absolute;
+}
+.signin-error-tip-arrow.right{
+	border-left:8px solid #ed5459;
+	right:-16px;
+	top:6px;
+}
+.signin-error-tip-arrow.right1{
+	border-left:8px solid #fed1d1;
+	right:-15px;
+	top:6px;
+}
+
+.signin-error-tip-arrow.left{
+	border-right:8px solid #ed5459;
+	left:-16px;
+	top:6px;
+}
+.signin-error-tip-arrow.left1{
+	border-right:8px solid #fed1d1;
+	left:-15px;
+	top:6px;
+}
+
+.signin-success{
+	position:absolute;
+	left:0px;
+}
+.signin-success-tip{
+	position:relative;
+	padding:5px 8px;
+	margin-bottom:13px;
+	border:1px solid green;
+	border-radius:3px;
+	box-shadow:1px 1px 5px #D6E9C6;
+	display:inline-block;
+	background-color:#DFF0D8;
+	color:#468847;
+	text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.signin-success-tip-arrow{
+	border:8px solid transparent;
+	position:absolute;
+}
+.signin-success-tip-arrow.right{
+	border-left:8px solid green;
+	right:-16px;
+	top:6px;
+}
+input.error,textarea.error{
+	border:1px solid #e3a198;
+	-webkit-box-shadow:0px 0px 4px #e3a198;
+	-moz-box-shadow:0px 0px 4px #e3a198;
+	box-shadow:0px 0px 4px #e3a198;
+	-webkit-transition:border linear 0.2s, box-shadow linear 0.2s;
+	-moz-transition:border linear 0.2s, box-shadow linear 0.2s;
+	-o-transition:border linear 0.2s, box-shadow linear 0.2s;
+	transition:border linear 0.2s, box-shadow linear 0.2s;
+	color:#333333;
+}
+input.success,textarea.success{
+	border:1px solid #468847;
+	-webkit-box-shadow:0px 0px 4px #468847;
+	-moz-box-shadow:0px 0px 4px #468847;
+	box-shadow:0px 0px 4px #468847;
+	-webkit-transition:border linear 0.2s, box-shadow linear 0.2s;
+	-moz-transition:border linear 0.2s, box-shadow linear 0.2s;
+	-o-transition:border linear 0.2s, box-shadow linear 0.2s;
+	transition:border linear 0.2s, box-shadow linear 0.2s;
+	color:#333333;
+}
+.signin-success-tip-arrow.right1{
+	border-left:8px solid #DFF0D8;
+	right:-15px;
+	top:6px;
+}
+.all_transition{
+	 -webkit-transition:all linear 0.2s;
+  -o-transition:all linear 0.2s;
+  -moz-transition:all linear 0.2s;
+  transition:all linear 0.2s;
+}
+.width_transition{
+	 -webkit-transition:width linear 0.2s;
+  -o-transition:width linear 0.2s;
+  -moz-transition:width linear 0.2s;
+  transition:width linear 0.2s;
+}
+.height_transition{
+	 -webkit-transition:width linear 0.2s;
+  -o-transition:width linear 0.2s;
+  -moz-transition:width linear 0.2s;
+  transition:width linear 0.2s;
+}
+.top_left_transition{
+	 -webkit-transition:top linear 0.1s,left linear 0.1s;
+  -o-transition:top linear 0.1s,left linear 0.1s;
+  -moz-transition:top linear 0.1s,left linear 0.1s;
+  transition:top linear 0.1s,left linear 0.1s;
+}
+/*error-tip²å¼þ end*/
+.paypal_btn{ 
+ 			display: inline-block;
+ 			font-family: inherit; 
+ 			font-size: 14px; 
+ 			font-weight: bold; 
+ 			color: #fff; 
+ 			text-align: center;
+ 			padding: 10px 14px; 
+ 			margin: 0; 
+
+		background: #ff6600; 
+		 			border: 0; 
+ 			cursor: pointer;
+		outline: none;
+		} 
+		.paypal_btn:hover{ background: #e05c04; } 

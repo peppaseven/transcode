@@ -1,0 +1,172 @@
+.bind-bg {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color:#fbb040; 
+	
+}
+
+.bind-main-center {
+	position: fixed;
+	width: 900px;
+	height: 450px;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 5px;
+	top: 50%;
+	left: 50%;
+	margin-top: -225px;
+	margin-left: -450px;
+}
+
+.default_photo {
+	position: relative;
+	float: right;
+	top: 9%;
+	right: 10%;
+	width: 13%;
+	text-align: center;
+}
+
+.bind-fullname {
+	display: block;
+	position: relative;
+	color: #222;
+	width: 100px;
+	height: 20px;
+}
+
+.bind-submit {
+	height: 40px;
+	width: 80px;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	font-size: 14px;
+	background-color: #fbb040;
+	text-decoration: none !important;
+	background-image: -moz-linear-gradient(top, #fbb040, #5da206);
+	background-image: -webkit-linear-gradient(top, #fbb040, #5da206);
+	background-image: -o-linear-gradient(top, #fbb040, #5da206);
+	background-image: -ms-linear-gradient(top, #fbb040, #5da206);
+	background-image: linear-gradient(top, #fbb040, #5da206);
+	filter: progid : DXImageTransform.Microsoft.gradient (   startColorstr =
+		'#62ab07', endColorstr = '#5da206', GradientType = 0 );
+	color: white;
+	cursor: pointer;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-o-border-radius: 2px;
+	-webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.3);
+	min-width: 50px;
+}
+
+.bind-submit:hover,.bind-submit:active {
+	background-color: #5da206;
+	text-decoration: none;
+	background-image: -moz-linear-gradient(top, #5da206, #599b06);
+	background-image: -webkit-linear-gradient(top, #5da206, #599b06);
+	background-image: -o-linear-gradient(top, #5da206, #599b06);
+	background-image: -ms-linear-gradient(top, #5da206, #599b06);
+	background-image: linear-gradient(top, #5da206, #599b06);
+	filter: progid : DXImageTransform.Microsoft.gradient (   startColorstr =
+		'#5da206', endColorstr = '#599b06', GradientType = 0 );
+}
+
+.bind-submit:disabled {
+	background-color: #8a9f6f;
+	background-image: -moz-linear-gradient(top, #8a9f6f, #535c47);
+	background-image: -webkit-linear-gradient(top, #8a9f6f, #535c47);
+	background-image: -o-linear-gradient(top, #8a9f6f, #535c47);
+	background-image: -ms-linear-gradient(top, #8a9f6f, #535c47);
+	background-image: linear-gradient(top, #8a9f6f, #535c47);
+	filter: progid : DXImageTransform.Microsoft.gradient (   startColorstr =
+		'#8a9f6f', endColorstr = '#535c47', GradientType = 0 );
+	box-shadow: none;
+	text-shadow: none;
+	cursor: default;
+	color: #e6e6e6;
+}
+
+.signin-txt {
+	padding: 13px 15px;
+	font-size: 14px;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-o-transition: border linear 0.2s, box-shadow linear 0.2s;
+	transition: border linear 0.2s, box-shadow linear 0.2s;
+	line-height: 20px;
+	color: #333333;
+	vertical-align: middle;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	height: 20px;
+	width: 260px;
+	outline: none;
+}
+
+.signin-txt.error {
+	border: 1px solid #e3a198;
+	-webkit-box-shadow: 0px 0px 4px #e3a198;
+	-moz-box-shadow: 0px 0px 4px #e3a198;
+	box-shadow: 0px 0px 4px #e3a198;
+	-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-o-transition: border linear 0.2s, box-shadow linear 0.2s;
+	transition: border linear 0.2s, box-shadow linear 0.2s;
+	color: #333333;
+}
+
+.signin-txt.success {
+	border: 1px solid #468847;
+	-webkit-box-shadow: 0px 0px 4px #468847;
+	-moz-box-shadow: 0px 0px 4px #468847;
+	box-shadow: 0px 0px 4px #468847;
+	-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-o-transition: border linear 0.2s, box-shadow linear 0.2s;
+	transition: border linear 0.2s, box-shadow linear 0.2s;
+	color: #333333;
+}
+
+.signin-bind-container {
+	width: 36%;
+	float: left;
+	padding: 0px 40px;
+	margin: 10px 50px;
+}
+
+.singin-bind-arrow {
+	float: left;
+	top: 17%;
+	position: relative;
+}
+
+.default_photo img {
+	width: 100px;
+	height: 100px;
+	display: block;
+	position: relative;
+}
+
+.signin-bind-tip {
+	margin: 40px 80px 10px 85px;
+}
+.tit{
+	font-size: 28px;
+	color: #444;
+	padding-bottom: 10px;
+}
+.des{
+	margin-top: 5px;
+	font-size: 16px;
+}
